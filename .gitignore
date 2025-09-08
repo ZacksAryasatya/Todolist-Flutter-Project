@@ -44,10 +44,4 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# Ignore custom lib folders
-lib/bindings/
-lib/controllers/
-lib/models/
-lib/pages/
-lib/reusable_component/
-lib/routes/
+
