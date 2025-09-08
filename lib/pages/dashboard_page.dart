@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todolist_application/controllers/dashboard_controller.dart';
+import 'package:todolist_application/pages/history_page.dart';
+import 'package:todolist_application/pages/home_page.dart';
+import 'package:todolist_application/pages/profile_page.dart';
 
 class DashboardPage extends StatelessWidget {
   DashboardPage({super.key});
   final DashboardController dashboardController = DashboardController();
+  final pages = [
+    HomePage(),
+    HistoryPage(),
+    ProfilePage(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
+        body: pages[dashboardController.selectedIndex.value],
         bottomNavigationBar: Container(
           decoration: const BoxDecoration(
             boxShadow: [
