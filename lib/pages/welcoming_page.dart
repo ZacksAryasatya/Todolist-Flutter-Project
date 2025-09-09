@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:todolist_application/reusable_component/button_widget.dart';
 
 class WelcomingPage extends StatelessWidget {
@@ -19,10 +18,24 @@ class WelcomingPage extends StatelessWidget {
               // Gambar dari assets
               Expanded(
                 child: Center(
-                  child: Image.asset(
-                    "assets/images/gambar1.png", 
-                    fit: BoxFit.contain,
-                    width: 250,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(0xFF42B6E7).withOpacity(0.3),
+                          blurRadius: 32,
+                          spreadRadius: 2,
+                          offset: Offset(0, 16),
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(125), // Membuat shadow bulat
+                    ),
+                    clipBehavior: Clip.antiAlias,
+                    child: Image.asset(
+                      "assets/images/gambar2.png",
+                      fit: BoxFit.contain,
+                      width: 250,
+                    ),
                   ),
                 ),
               ),
