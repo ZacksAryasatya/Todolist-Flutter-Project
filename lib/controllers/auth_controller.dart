@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:todolist_application/pages/Dashboard_page.dart';
+import 'package:todolist_application/pages/login_page.dart';
 
 class AuthController extends GetxController {
   final emailController = TextEditingController();
@@ -18,4 +19,16 @@ class AuthController extends GetxController {
     }
   }
 
+  void logout() {
+    Get.defaultDialog(
+      title: "Konfirmasi",
+      middleText: "Apakah kamu yakin ingin logout?",
+      textCancel: "Batal",
+      textConfirm: "Logout",
+      confirmTextColor: const Color(0xFFFFFFFF),
+      onConfirm: () {
+        Get.offAll(() => LoginPage());
+      },
+    );
+  }
 }
