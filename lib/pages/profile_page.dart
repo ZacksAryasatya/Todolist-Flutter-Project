@@ -4,8 +4,8 @@ import 'package:todolist_application/reusable_component/button_widget.dart';
 import 'package:get/get.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
-
+  ProfilePage({super.key});
+  final AuthController authController = Get.put(AuthController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,8 +59,8 @@ class ProfilePage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                       boxShadow: [
                         BoxShadow(
-                            color: Color(0xFF42B6E7).withValues(alpha: 0.5),
-                            blurRadius: 8,
+                          color: Color(0xFF42B6E7).withValues(alpha: 0.5),
+                          blurRadius: 8,
                           offset: Offset(0, 4),
                         ),
                       ],
@@ -73,12 +73,21 @@ class ProfilePage extends StatelessWidget {
                         Container(
                           decoration: BoxDecoration(
                             color: Color(0xFF42B6E7),
-                            borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
+                            borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(12),
+                            ),
                           ),
-                          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 18),
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 16,
+                            horizontal: 18,
+                          ),
                           child: Row(
                             children: [
-                              Icon(Icons.info_outline, color: Colors.white, size: 26),
+                              Icon(
+                                Icons.info_outline,
+                                color: Colors.white,
+                                size: 26,
+                              ),
                               SizedBox(width: 12),
                               Text(
                                 'Profile Information',
@@ -94,72 +103,139 @@ class ProfilePage extends StatelessWidget {
                         ),
                         // Isi data dengan icon dan divider
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 18,
+                            vertical: 18,
+                          ),
                           child: Column(
                             children: [
                               Row(
                                 children: [
                                   CircleAvatar(
-                                    backgroundColor: Color(0xFF42B6E7).withValues(alpha: 0.12),
+                                    backgroundColor: Color(
+                                      0xFF42B6E7,
+                                    ).withValues(alpha: 0.12),
                                     radius: 18,
-                                    child: Icon(Icons.person, color: Color(0xFF42B6E7)),
+                                    child: Icon(
+                                      Icons.person,
+                                      color: Color(0xFF42B6E7),
+                                    ),
                                   ),
                                   SizedBox(width: 14),
                                   Expanded(
-                                    child: Text('Nama', style: TextStyle(fontWeight: FontWeight.w600)),
+                                    child: Text(
+                                      'Nama',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
                                   ),
                                   Text('TODO', style: TextStyle(fontSize: 15)),
                                 ],
                               ),
                               SizedBox(height: 10),
-                              Divider(height: 1, color: Color(0xFF42B6E7).withValues(alpha: 0.18)),
+                              Divider(
+                                height: 1,
+                                color: Color(
+                                  0xFF42B6E7,
+                                ).withValues(alpha: 0.18),
+                              ),
                               SizedBox(height: 10),
                               Row(
                                 children: [
                                   CircleAvatar(
-                                    backgroundColor: Color(0xFF42B6E7).withValues(alpha: 0.12),
+                                    backgroundColor: Color(
+                                      0xFF42B6E7,
+                                    ).withValues(alpha: 0.12),
                                     radius: 18,
-                                    child: Icon(Icons.school, color: Color(0xFF42B6E7)),
+                                    child: Icon(
+                                      Icons.school,
+                                      color: Color(0xFF42B6E7),
+                                    ),
                                   ),
                                   SizedBox(width: 14),
                                   Expanded(
-                                    child: Text('Asal Sekolah', style: TextStyle(fontWeight: FontWeight.w600)),
+                                    child: Text(
+                                      'Asal Sekolah',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
                                   ),
-                                  Text('SMK RUS KUDUS', style: TextStyle(fontSize: 15)),
+                                  Text(
+                                    'SMK RUS KUDUS',
+                                    style: TextStyle(fontSize: 15),
+                                  ),
                                 ],
                               ),
                               SizedBox(height: 10),
-                              Divider(height: 1, color: Color(0xFF42B6E7).withValues(alpha: 0.18)),
+                              Divider(
+                                height: 1,
+                                color: Color(
+                                  0xFF42B6E7,
+                                ).withValues(alpha: 0.18),
+                              ),
                               SizedBox(height: 10),
                               Row(
                                 children: [
                                   CircleAvatar(
-                                    backgroundColor: Color(0xFF42B6E7).withValues(alpha: 0.12),
+                                    backgroundColor: Color(
+                                      0xFF42B6E7,
+                                    ).withValues(alpha: 0.12),
                                     radius: 18,
-                                    child: Icon(Icons.cake, color: Color(0xFF42B6E7)),
+                                    child: Icon(
+                                      Icons.cake,
+                                      color: Color(0xFF42B6E7),
+                                    ),
                                   ),
                                   SizedBox(width: 14),
                                   Expanded(
-                                    child: Text('Tanggal Lahir', style: TextStyle(fontWeight: FontWeight.w600)),
+                                    child: Text(
+                                      'Tanggal Lahir',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
                                   ),
-                                  Text('01 Januari 2000', style: TextStyle(fontSize: 15)),
+                                  Text(
+                                    '01 Januari 2000',
+                                    style: TextStyle(fontSize: 15),
+                                  ),
                                 ],
                               ),
                               SizedBox(height: 10),
-                              Divider(height: 1, color: Color(0xFF42B6E7).withValues(alpha: 0.18)),
+                              Divider(
+                                height: 1,
+                                color: Color(
+                                  0xFF42B6E7,
+                                ).withValues(alpha: 0.18),
+                              ),
                               SizedBox(height: 10),
                               Row(
                                 children: [
                                   CircleAvatar(
-                                    backgroundColor: Color(0xFF42B6E7).withValues(alpha: 0.12),
+                                    backgroundColor: Color(
+                                      0xFF42B6E7,
+                                    ).withValues(alpha: 0.12),
                                     radius: 18,
-                                    child: Icon(Icons.email, color: Color(0xFF42B6E7)),
+                                    child: Icon(
+                                      Icons.email,
+                                      color: Color(0xFF42B6E7),
+                                    ),
                                   ),
                                   SizedBox(width: 14),
                                   Expanded(
-                                    child: Text('Email', style: TextStyle(fontWeight: FontWeight.w600)),
+                                    child: Text(
+                                      'Email',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
                                   ),
-                                  Text('todo@gmail.com', style: TextStyle(fontSize: 15)),
+                                  Text(
+                                    'todo@gmail.com',
+                                    style: TextStyle(fontSize: 15),
+                                  ),
                                 ],
                               ),
                             ],
@@ -171,10 +247,9 @@ class ProfilePage extends StatelessWidget {
                   const SizedBox(height: 32),
                   Frame4Button(
                     text: 'Logout',
-               onPressed: () {
-                 final authController = Get.find<AuthController>();
+                    onPressed: () {
                       authController.logout();
-               },
+                    },
                   ),
                 ],
               ),
