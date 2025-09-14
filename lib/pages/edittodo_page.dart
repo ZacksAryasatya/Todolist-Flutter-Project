@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:todolist_application/controllers/edit_todo_controller.dart';
 import 'package:todolist_application/controllers/todo_controller.dart';
+import 'package:todolist_application/reusable_component/textfield_add.dart';
 import 'package:todolist_application/reusable_component/custom_dropdown.dart';
 import 'package:todolist_application/reusable_component/primary_button.dart';
-import 'package:todolist_application/reusable_component/textfield_add.dart';
-import 'package:todolist_application/reusable_component/page_title.dart';
 
-class AddTodoPage extends StatelessWidget {
-  AddTodoPage({super.key});
+class EditTodoPage extends StatelessWidget {
+  EditTodoPage({super.key});
 
   final TodoController todoController = Get.find<TodoController>();
+  final EditTodoController editController = Get.find<EditTodoController>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFFF5F7FA),
       appBar: AppBar(
-        title: const Text(
-          "Tambah Todo",
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-        ),
-        backgroundColor: const Color(0xFFF44336), 
+        title: const Text("Edit Todo"),
+        backgroundColor: Colors.redAccent,
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -28,9 +26,18 @@ class AddTodoPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const PageTitle(
-              title: "Tambah",
-              subtitle: "Isi detail todo kamu di bawah ini",
+            const Text(
+              "Edit Todo Kamu",
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(height: 8),
+            const Text(
+              "Perbarui detail todo di bawah ini",
+              style: TextStyle(fontSize: 14, color: Colors.black54),
             ),
             const SizedBox(height: 24),
             Container(
@@ -50,12 +57,12 @@ class AddTodoPage extends StatelessWidget {
                 children: [
                   TextfieldAdd(
                     icon: Icons.title,
-                    controller: todoController.titleController,
+                    controller: editController.titleController,
                     label: "Judul",
                   ),
                   const SizedBox(height: 16),
                   TextfieldAdd(
-                    controller: todoController.descController,
+                    controller: editController.descController,
                     icon: Icons.description,
                     label: "Deskripsi",
                     maxLines: 3,
@@ -63,13 +70,13 @@ class AddTodoPage extends StatelessWidget {
                   const SizedBox(height: 16),
                   Obx(
                     () => CustomDropdown(
-                      value: todoController.selectedCategory.value,
+                      value: editController.selectedCategory.value,
                       items: todoController.categories,
                       icon: Icons.category,
                       label: "Kategori",
                       onChanged: (value) {
                         if (value != null) {
-                          todoController.setCategory(value);
+                          editController.setCategory(value);
                         }
                       },
                     ),
@@ -81,8 +88,8 @@ class AddTodoPage extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: PrimaryButton(
-                text: "Simpan Todo",
-                onPressed: todoController.addTodo,
+                text: "Update Todo",
+                onPressed: editController.saveTodo,
               ),
             ),
           ],

@@ -1,73 +1,71 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todolist_application/controllers/todo_controller.dart';
+import 'package:todolist_application/reusable_component/todo_item_card.dart';
+import 'package:todolist_application/reusable_component/custom_header.dart';
+import 'package:todolist_application/routes/routes.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
-  final TodoController todoController = Get.put(TodoController());
+  final TodoController todoController = Get.find<TodoController>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("My ToDo List"),
-        centerTitle: true,
-      ),
-      body: Obx(() {
-        if (todoController.todos.isEmpty) {
-          return const Center(
-            child: Text("Belum ada todo, tambah dulu yuk!"),
-          );
-        }
-        return ListView.builder(
-          itemCount: todoController.todos.length,
-          itemBuilder: (context, index) {
-            final todo = todoController.todos[index];
-            return Card(
-              margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-              child: ListTile(
-                leading: const Icon(Icons.task),
-                title: Text(todo),
-                trailing: IconButton(
-                  icon: const Icon(Icons.delete, color: Colors.red),
-                  onPressed: () {
-                    todoController.removeTodo(index);
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CustomHeader(
+              title: "Todo",
+              onAdd: () {
+                Get.toNamed(AppRoutes.addtodo);
+              },
+            ),
+            const SizedBox(height: 20),
+            Expanded(
+              child: Obx(() {
+                if (todoController.todos.isEmpty) {
+                  return const Center(
+                    child: Text(
+                      "Belum ada todo",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  );
+                }
+                return ListView.builder(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  itemCount: todoController.todos.length,
+                  itemBuilder: (context, index) {
+                    final todo = todoController.todos[index];
+                    return TodoItemCard(
+                      title: todo.title,
+                      description: todo.description,
+                      category: todo.category,
+                      isDone: todo.isDone,
+                      onToggle: () {
+                        todoController.toggleTodoStatus(index);
+                      },
+                      onLongPress: () {
+                        todoController.deleteTodo(index);
+                        Get.snackbar("Info", "Todo dihapus");
+                      },
+                      onEdit: () {
+                        Get.toNamed(
+                          AppRoutes.edittodo,
+                          arguments: index,
+                        );
+                      },
+                    );
                   },
-                ),
-              ),
-            );
-          },
-        );
-      }),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          _showAddTodoDialog(context);
-        },
-        child: const Icon(Icons.add),
+                );
+              }),
+            ),
+          ],
+        ),
       ),
-    );
-  }
-
-  void _showAddTodoDialog(BuildContext context) {
-    final TextEditingController textController = TextEditingController();
-
-    Get.defaultDialog(
-      title: "Tambah Todo",
-      content: TextField(
-        controller: textController,
-        decoration: const InputDecoration(hintText: "Masukkan todo baru"),
-      ),
-      textConfirm: "Simpan",
-      textCancel: "Batal",
-      confirmTextColor: Colors.white,
-      onConfirm: () {
-        if (textController.text.isNotEmpty) {
-          todoController.addTodo(textController.text);
-          Get.back();
-        }
-      },
-      onCancel: () {},
     );
   }
 }

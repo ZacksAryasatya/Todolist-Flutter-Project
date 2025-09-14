@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:todolist_application/pages/Dashboard_page.dart';
-import 'package:todolist_application/pages/login_page.dart';
+import 'package:todolist_application/routes/routes.dart';
 
 class AuthController extends GetxController {
   final emailController = TextEditingController();
@@ -13,22 +12,9 @@ class AuthController extends GetxController {
 
     if (email == "z" && password == "z") {
       Get.snackbar("Sukses", "Login berhasil ");
-      Get.offAll(() => DashboardPage());
+      Get.offAllNamed(AppRoutes.dashboard);
     } else {
       Get.snackbar("Error", "Email atau password salah");
     }
-  }
-
-  void logout() {
-    Get.defaultDialog(
-      title: "Konfirmasi",
-      middleText: "Apakah kamu yakin ingin logout?",
-      textCancel: "Batal",
-      textConfirm: "Logout",
-      confirmTextColor: const Color(0xFFFFFFFF),
-      onConfirm: () {
-        Get.offAll(() => LoginPage());
-      },
-    );
   }
 }
