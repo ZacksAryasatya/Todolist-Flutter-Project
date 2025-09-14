@@ -76,7 +76,7 @@ class EditTodoPage extends StatelessWidget {
                       label: "Kategori",
                       onChanged: (value) {
                         if (value != null) {
-                          editController.selectedCategory.value = value;
+                          editController.setCategory(value);
                         }
                       },
                     ),
