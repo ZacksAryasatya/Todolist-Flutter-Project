@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todolist_application/controllers/dashboard_controller.dart';
 
-
-
 class DashboardPage extends StatelessWidget {
   DashboardPage({super.key});
-  final DashboardController dashboardController = DashboardController();
-  
+  final DashboardController dashboardController =
+      Get.find<DashboardController>();
+
   @override
   Widget build(BuildContext context) {
     return Obx(
@@ -15,12 +14,7 @@ class DashboardPage extends StatelessWidget {
         body: pages[dashboardController.selectedIndex.value],
         bottomNavigationBar: Container(
           decoration: const BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black26,
-                blurRadius: 8,
-              ),
-            ],
+            boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 8)],
           ),
           child: ClipRRect(
             borderRadius: const BorderRadius.only(
@@ -35,9 +29,9 @@ class DashboardPage extends StatelessWidget {
               unselectedItemColor: Colors.black54,
               items: const [
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.home),
+                  icon: Icon(Icons.home), 
                   label: 'Home',
-                ),
+                  ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.history),
                   label: 'History',

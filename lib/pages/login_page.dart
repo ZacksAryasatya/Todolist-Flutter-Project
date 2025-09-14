@@ -7,7 +7,7 @@ import 'package:todolist_application/reusable_component/textfield_widget.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
-  final AuthController authController = Get.put(AuthController());
+  final AuthController authController = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -21,38 +21,31 @@ class LoginPage extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Image.asset("assets/images/kunci.png", width: 160, height: 160),
-
                 const SizedBox(height: 13),
                 const Text(
                   "Welcome Back!",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
-
                 const SizedBox(height: 8),
                 const Text(
                   "Ready to check off today's tasks? Let's go!",
                   style: TextStyle(fontSize: 14, color: Colors.black54),
                   textAlign: TextAlign.center,
                 ),
-
                 const SizedBox(height: 24),
                 CustomTextField(
-            
                   hintText: "Enter your email",
                   icon: Icons.email,
                   controller: authController.emailController,
                 ),
-
                 const SizedBox(height: 16),
                 CustomTextField(
-       
                   hintText: "Enter your password",
                   icon: Icons.lock,
                   isPassword: true,
                   controller: authController.passwordController,
                 ),
-
                 const SizedBox(height: 24),
                 Frame4Button(
                   text: "Login",
