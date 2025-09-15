@@ -28,7 +28,7 @@ class AppPages {
     GetPage(
       name: AppRoutes.dashboard,
       page: () => DashboardPage(),
-      bindings: [DashboardBinding(), TodoBinding(), EditTodoBinding()],
+      bindings: [DashboardBinding(), TodoBinding()],
     ),
     GetPage(
       name: AppRoutes.home, 
@@ -44,6 +44,7 @@ class AppPages {
     GetPage(
       name: AppRoutes.edittodo,
       page: () => EditTodoPage(),
+      binding: EditTodoBinding(),
     ),
     GetPage(
       name: AppRoutes.history,
