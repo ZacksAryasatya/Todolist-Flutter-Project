@@ -5,7 +5,7 @@ import 'package:todolist_application/controllers/todo_controller.dart';
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
-  final TodoController todoController = Get.put(TodoController());
+  final TodoController _todoController = Get.put(TodoController());
 
   @override
   Widget build(BuildContext context) {
@@ -15,25 +15,46 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
       ),
       body: Obx(() {
-        if (todoController.todos.isEmpty) {
+        if (_todoController.todos.isEmpty) {
           return const Center(
             child: Text("Belum ada todo, tambah dulu yuk!"),
           );
         }
         return ListView.builder(
-          itemCount: todoController.todos.length,
+          itemCount: _todoController.todos.length,
           itemBuilder: (context, index) {
-            final todo = todoController.todos[index];
+            final todo = _todoController.todos[index];
             return Card(
               margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               child: ListTile(
-                leading: const Icon(Icons.task),
-                title: Text(todo),
-                trailing: IconButton(
-                  icon: const Icon(Icons.delete, color: Colors.red),
-                  onPressed: () {
-                    todoController.removeTodo(index);
-                  },
+                leading: Icon(
+                  todo.isDone ? Icons.check_circle : Icons.task,
+                  color: todo.isDone ? Colors.green : Colors.blue,
+                ),
+                title: Text(
+                  todo.title,
+                  style: TextStyle(
+                    decoration:
+                        todo.isDone ? TextDecoration.lineThrough : null,
+                  ),
+                ),
+                subtitle: Text("${todo.description} • ${todo.category}"),
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.done, color: Colors.green),
+                      onPressed: () {
+                        _todoController.toggleTodoStatus(index);
+                      },
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.delete, color: Colors.red),
+                      onPressed: () {
+                        _todoController.deleteTodo(index);
+                      },
+                    ),
+                  ],
                 ),
               ),
             );
@@ -42,32 +63,50 @@ class HomePage extends StatelessWidget {
       }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _showAddTodoDialog(context);
+          _showAddTodoDialog();
         },
         child: const Icon(Icons.add),
       ),
     );
   }
 
-  void _showAddTodoDialog(BuildContext context) {
-    final TextEditingController textController = TextEditingController();
-
+  void _showAddTodoDialog() {
     Get.defaultDialog(
       title: "Tambah Todo",
-      content: TextField(
-        controller: textController,
-        decoration: const InputDecoration(hintText: "Masukkan todo baru"),
+      content: Column(
+        children: [
+          TextField(
+            controller: _todoController.titleController,
+            decoration: const InputDecoration(hintText: "Judul todo"),
+          ),
+          const SizedBox(height: 10),
+          TextField(
+            controller: _todoController.descController,
+            decoration: const InputDecoration(hintText: "Deskripsi todo"),
+          ),
+          const SizedBox(height: 10),
+          Obx(() => DropdownButton<String>(
+                value: _todoController.selectedCategory.value,
+                items: _todoController.categories
+                    .map((c) => DropdownMenuItem(
+                          value: c,
+                          child: Text(c),
+                        ))
+                    .toList(),
+                onChanged: (value) {
+                  if (value != null) {
+                    _todoController.setCategory(value);
+                  }
+                },
+              )),
+        ],
       ),
       textConfirm: "Simpan",
       textCancel: "Batal",
       confirmTextColor: Colors.white,
       onConfirm: () {
-        if (textController.text.isNotEmpty) {
-          todoController.addTodo(textController.text);
-          Get.back();
-        }
+        _todoController.addTodo();
       },
-      onCancel: () {},
     );
   }
 }
