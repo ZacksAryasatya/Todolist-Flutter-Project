@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todolist_application/controllers/todo_controller.dart';
+import 'package:todolist_application/reusable_component/button_widget.dart';
 import 'package:todolist_application/reusable_component/custom_dropdown.dart';
-import 'package:todolist_application/reusable_component/primary_button.dart';
-import 'package:todolist_application/reusable_component/textfield_add.dart';
-import 'package:todolist_application/reusable_component/page_title.dart';
+import 'package:todolist_application/reusable_component/textfield_widget.dart';
 
 class AddTodoPage extends StatelessWidget {
   AddTodoPage({super.key});
@@ -16,11 +15,8 @@ class AddTodoPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text(
-          "Tambah Todo",
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-        ),
-        backgroundColor: const Color(0xFFF44336), 
+         title: const Text("Tambah Todo"),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255), 
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -28,10 +24,6 @@ class AddTodoPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const PageTitle(
-              title: "Tambah",
-              subtitle: "Isi detail todo kamu di bawah ini",
-            ),
             const SizedBox(height: 24),
             Container(
               padding: const EdgeInsets.all(18),
@@ -48,17 +40,18 @@ class AddTodoPage extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  TextfieldAdd(
+                  CustomTextField(
                     icon: Icons.title,
                     controller: todoController.titleController,
                     label: "Judul",
+                    hintText: "Masukkan judul todo",
                   ),
                   const SizedBox(height: 16),
-                  TextfieldAdd(
+                  CustomTextField(
                     controller: todoController.descController,
                     icon: Icons.description,
                     label: "Deskripsi",
-                    maxLines: 3,
+                    hintText: "Masukkan deskripsi todo",
                   ),
                   const SizedBox(height: 16),
                   Obx(
@@ -80,7 +73,7 @@ class AddTodoPage extends StatelessWidget {
             const SizedBox(height: 30),
             SizedBox(
               width: double.infinity,
-              child: PrimaryButton(
+              child: Frame4Button(
                 text: "Simpan Todo",
                 onPressed: todoController.addTodo,
               ),

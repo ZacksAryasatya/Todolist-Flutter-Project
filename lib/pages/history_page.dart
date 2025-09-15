@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todolist_application/controllers/todo_controller.dart';
-import 'package:todolist_application/reusable_component/history_item_card.dart';
 import 'package:todolist_application/reusable_component/custom_header.dart';
+import 'package:todolist_application/reusable_component/history_item.card.dart';
 
 class HistoryPage extends StatelessWidget {
   HistoryPage({super.key});
