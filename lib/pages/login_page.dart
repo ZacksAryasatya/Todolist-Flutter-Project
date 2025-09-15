@@ -36,12 +36,14 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(height: 24),
                 CustomTextField(
                   hintText: "Enter your email",
+                  label: "Email",
                   icon: Icons.email,
                   controller: authController.emailController,
                 ),
                 const SizedBox(height: 16),
                 CustomTextField(
                   hintText: "Enter your password",
+                  label: "Password",
                   icon: Icons.lock,
                   isPassword: true,
                   controller: authController.passwordController,

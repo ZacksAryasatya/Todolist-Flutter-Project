@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todolist_application/controllers/edit_todo_controller.dart';
 import 'package:todolist_application/controllers/todo_controller.dart';
-import 'package:todolist_application/reusable_component/textfield_add.dart';
+import 'package:todolist_application/reusable_component/button_widget.dart';
 import 'package:todolist_application/reusable_component/custom_dropdown.dart';
-import 'package:todolist_application/reusable_component/primary_button.dart';
+import 'package:todolist_application/reusable_component/textfield_widget.dart';
 
 class EditTodoPage extends StatelessWidget {
   EditTodoPage({super.key});
@@ -18,7 +18,7 @@ class EditTodoPage extends StatelessWidget {
       backgroundColor: const Color(0xFFF5F7FA),
       appBar: AppBar(
         title: const Text("Edit Todo"),
-        backgroundColor: Colors.redAccent,
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -26,19 +26,6 @@ class EditTodoPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "Edit Todo Kamu",
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: Colors.black87,
-              ),
-            ),
-            const SizedBox(height: 8),
-            const Text(
-              "Perbarui detail todo di bawah ini",
-              style: TextStyle(fontSize: 14, color: Colors.black54),
-            ),
             const SizedBox(height: 24),
             Container(
               padding: const EdgeInsets.all(18),
@@ -55,17 +42,18 @@ class EditTodoPage extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  TextfieldAdd(
+                  CustomTextField(
                     icon: Icons.title,
                     controller: editController.titleController,
                     label: "Judul",
+                    hintText: "Masukkan judul todo",
                   ),
                   const SizedBox(height: 16),
-                  TextfieldAdd(
+                  CustomTextField(
                     controller: editController.descController,
                     icon: Icons.description,
                     label: "Deskripsi",
-                    maxLines: 3,
+                    hintText: "Masukkan deskripsi todo",
                   ),
                   const SizedBox(height: 16),
                   Obx(
@@ -87,7 +75,7 @@ class EditTodoPage extends StatelessWidget {
             const SizedBox(height: 30),
             SizedBox(
               width: double.infinity,
-              child: PrimaryButton(
+              child: Frame4Button(
                 text: "Update Todo",
                 onPressed: editController.saveTodo,
               ),
