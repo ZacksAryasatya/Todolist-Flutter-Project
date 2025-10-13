@@ -8,7 +8,7 @@ class WelcomingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   return Scaffold(
+    return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
@@ -29,7 +29,7 @@ class WelcomingPage extends StatelessWidget {
                           offset: Offset(0, 16),
                         ),
                       ],
-                      borderRadius: BorderRadius.circular(125), 
+                      borderRadius: BorderRadius.circular(125),
                     ),
                     clipBehavior: Clip.antiAlias,
                     child: Image.asset(
@@ -45,10 +45,7 @@ class WelcomingPage extends StatelessWidget {
               const Text(
                 "Turn your tasks into achievements.",
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
 
               const SizedBox(height: 12),
@@ -64,10 +61,12 @@ class WelcomingPage extends StatelessWidget {
 
               const SizedBox(height: 32),
               Frame4Button(
+                width: 296,
+                height: 50,
+                elevation: 4,
+                color: const Color(0xFF42B6E7),
                 onPressed: () {
-                  Get.offNamed(
-                    AppRoutes.login
-                  );
+                  Get.offNamed(AppRoutes.login);
                 },
                 text: "Get Started",
               ),

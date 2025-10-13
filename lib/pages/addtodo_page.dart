@@ -15,8 +15,8 @@ class AddTodoPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-         title: const Text("Tambah Todo"),
-        backgroundColor: const Color.fromARGB(255, 255, 255, 255), 
+        title: const Text("Tambah Todo"),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -74,6 +74,10 @@ class AddTodoPage extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: Frame4Button(
+                width: 296,
+                height: 50,
+                elevation: 4,
+                color: const Color(0xFF42B6E7),
                 text: "Simpan Todo",
                 onPressed: todoController.addTodo,
               ),
