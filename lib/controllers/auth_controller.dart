@@ -18,8 +18,12 @@ class AuthController extends GetxController {
     }
   }
 
+  void logout() {
+    Get.offAllNamed(AppRoutes.login);
+  }
+
   var isMobile = true.obs;
-  void updatelayout(BoxConstraints constraints){
+  void updatelayout(BoxConstraints constraints) {
     isMobile.value = constraints.maxWidth < 600;
   }
 }
