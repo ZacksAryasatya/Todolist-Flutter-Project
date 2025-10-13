@@ -17,4 +17,9 @@ class AuthController extends GetxController {
       Get.snackbar("Error", "Email atau password salah");
     }
   }
+
+  var isMobile = true.obs;
+  void updatelayout(BoxConstraints constraints){
+    isMobile.value = constraints.maxWidth < 600;
+  }
 }
