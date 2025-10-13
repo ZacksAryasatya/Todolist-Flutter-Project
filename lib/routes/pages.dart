@@ -11,6 +11,10 @@ import 'package:todolist_application/pages/Home_page.dart';
 import 'package:todolist_application/pages/login_page.dart';
 import 'package:todolist_application/pages/Profile_page.dart';
 import 'package:todolist_application/pages/welcoming_page.dart';
+import 'package:todolist_application/pages/widescreen/dashboard_widescreen_page.dart';
+import 'package:todolist_application/pages/widescreen/history_widescreen_page.dart';
+import 'package:todolist_application/pages/widescreen/home_widescreen_page.dart';
+import 'package:todolist_application/pages/widescreen/login_widescreen_page.dart';
 import 'package:todolist_application/routes/routes.dart';
 import 'package:get/get.dart';
 class AppPages {
@@ -54,6 +58,26 @@ class AppPages {
     GetPage(
       name: AppRoutes.profile,
       page: () => ProfilePage(),
+    ),
+    GetPage(
+      name: AppRoutes.loginwidescreenpage,
+      page: () => LoginWidescreenPage(),
+      binding: TodoBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.dashboardwidescreenpage,
+      page: () => DashboardWidescreenPage(),
+      binding: TodoBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.homewidescreenpage,
+      page: () => HomeWidescreenPage(), 
+      binding: TodoBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.historywidescreenpage,
+      page: () => HistoryWidescreenPage(),
+      binding: TodoBinding(),
     ),
   ];
   
