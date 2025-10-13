@@ -28,10 +28,7 @@ class DashboardMobilePage extends StatelessWidget {
               selectedItemColor: Colors.white,
               unselectedItemColor: Colors.black54,
               items: const [
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.home), 
-                  label: 'Home',
-                  ),
+                BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.history),
                   label: 'History',
