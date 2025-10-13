@@ -17,34 +17,55 @@ class HistoryMobilePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomHeader(
-              title: "History",
-            ),
+            const CustomHeader(title: "History"),
             const SizedBox(height: 20),
             Expanded(
               child: Obx(() {
-                if (todoController.completedTodos.isEmpty) {
+                final todos = todoController.completedTodos;
+
+                if (todos.isEmpty) {
                   return const Center(
                     child: Text(
                       "Belum ada todo yang selesai",
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(fontSize: 16, color: Colors.grey),
                     ),
                   );
                 }
+
                 return ListView.builder(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
-                  itemCount: todoController.completedTodos.length,
+                  itemCount: todos.length,
                   itemBuilder: (context, index) {
-                    final todo = todoController.completedTodos[index];
-                    return HistoryItemCard(
-                      title: todo.title,
-                      description: todo.description,
-                      category: todo.category,
-                      showCheckIcon: true,
-                      onDelete: () {
-                        todoController.deleteCompletedTodo(index);
-                        Get.snackbar("Info", "Todo dihapus dari history");
-                      },
+                    final todo = todos[index];
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 6),
+                      child: Dismissible(
+                        key: ValueKey(todo.title), 
+                        direction: DismissDirection.endToStart,
+                        onDismissed: (_) {
+                          todoController.deleteCompletedTodo(index);
+                          Get.snackbar(
+                            "Info",
+                            "Todo '${todo.title}' dihapus dari history",
+                            snackPosition: SnackPosition.TOP,
+                          );
+                        },
+                        background: Container(
+                          alignment: Alignment.centerRight,
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          decoration: BoxDecoration(
+                            color: Colors.redAccent,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: const Icon(Icons.delete, color: Colors.white),
+                        ),
+                        child: HistoryItemCard(
+                          title: todo.title,
+                          description: todo.description,
+                          category: todo.category,
+                          showCheckIcon: true,
+                        ),
+                      ),
                     );
                   },
                 );

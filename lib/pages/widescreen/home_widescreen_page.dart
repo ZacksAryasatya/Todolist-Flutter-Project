@@ -22,7 +22,7 @@ class HomeWidescreenPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomHeader(
-                  title: "Todo (Widescreen)",
+                  title: "Todo",
                   onAdd: () => Get.toNamed(AppRoutes.addtodo),
                 ),
                 const SizedBox(height: 24),

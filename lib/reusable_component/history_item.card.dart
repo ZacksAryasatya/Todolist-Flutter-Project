@@ -4,57 +4,61 @@ class HistoryItemCard extends StatelessWidget {
   final String title;
   final String description;
   final String category;
-  final VoidCallback onDelete;
   final bool showCheckIcon;
+  final VoidCallback? onDelete;
 
   const HistoryItemCard({
     super.key,
     required this.title,
     required this.description,
     required this.category,
-    required this.onDelete,
-    this.showCheckIcon = true,
+    this.showCheckIcon = true, 
+    this.onDelete,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Dismissible(
-      key: UniqueKey(),
-      direction: DismissDirection.endToStart,
-      background: Container(
-        color: Colors.red,
-        alignment: Alignment.centerRight,
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: const Icon(Icons.delete, color: Colors.white),
-      ),
-      onDismissed: (direction) {
-        onDelete(); 
-      },
-      child: Card(
+    return Container(
+      decoration: BoxDecoration(
         color: Colors.green.shade400,
-        margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        child: ListTile(
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 12,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      padding: const EdgeInsets.all(12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    decoration: TextDecoration.lineThrough,
+                    fontSize: 16,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              if (showCheckIcon)
+                const Icon(Icons.check_circle, color: Colors.white),
+            ],
           ),
-          trailing: showCheckIcon
-              ? const Icon(Icons.check_circle, color: Colors.white)
-              : null,
-          title: Text(
-            title,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              decoration: TextDecoration.lineThrough,
-            ),
+          const SizedBox(height: 8),
+          Text(
+            description,
+            style: const TextStyle(color: Colors.white70, fontSize: 14),
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
           ),
-          subtitle: Text(
-            "$description\nKategori: $category",
-            style: const TextStyle(color: Colors.white70),
+          const SizedBox(height: 4),
+          Text(
+            "Kategori: $category",
+            style: const TextStyle(color: Colors.white70, fontSize: 12),
           ),
-        ),
+        ],
       ),
     );
   }
