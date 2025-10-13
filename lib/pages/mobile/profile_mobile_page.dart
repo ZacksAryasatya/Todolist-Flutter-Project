@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todolist_application/controllers/auth_controller.dart';
 import 'package:get/get.dart';
+import 'package:todolist_application/reusable_component/button_widget.dart';
 
 class ProfileMobilePage extends StatelessWidget {
   ProfileMobilePage({super.key});
@@ -244,6 +245,16 @@ class ProfileMobilePage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 32),
+                  Frame4Button(
+                    width: 296,
+                    height: 50,
+                    elevation: 4,
+                    color: const Color(0xFF42B6E7),
+                    text: "Logout",
+                    onPressed: () {
+                      authController.logout();
+                    },
+                  ),
                 ],
               ),
             ),

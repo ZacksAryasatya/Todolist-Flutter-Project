@@ -22,7 +22,6 @@ class HistoryMobilePage extends StatelessWidget {
             Expanded(
               child: Obx(() {
                 final todos = todoController.completedTodos;
-
                 if (todos.isEmpty) {
                   return const Center(
                     child: Text(
@@ -40,7 +39,7 @@ class HistoryMobilePage extends StatelessWidget {
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 6),
                       child: Dismissible(
-                        key: ValueKey(todo.title), 
+                        key: ValueKey(todo.title),
                         direction: DismissDirection.endToStart,
                         onDismissed: (_) {
                           todoController.deleteCompletedTodo(index);

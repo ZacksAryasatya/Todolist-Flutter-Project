@@ -43,10 +43,7 @@ class LoginWidescreenPage extends StatelessWidget {
                       const SizedBox(height: 12),
                       const Text(
                         "Ready to check off today's tasks? Let's go!",
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.black54,
-                        ),
+                        style: TextStyle(fontSize: 18, color: Colors.black54),
                         textAlign: TextAlign.center,
                       ),
                     ],
@@ -93,6 +90,10 @@ class LoginWidescreenPage extends StatelessWidget {
                             ),
                             const SizedBox(height: 30),
                             Frame4Button(
+                              width: 296,
+                              height: 50,
+                              elevation: 4,
+                              color: const Color(0xFF42B6E7),
                               text: "Login",
                               onPressed: () {
                                 authController.login();

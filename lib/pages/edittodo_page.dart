@@ -76,6 +76,10 @@ class EditTodoPage extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: Frame4Button(
+                width: 296,
+                height: 50,
+                elevation: 4,
+                color: const Color(0xFF42B6E7),
                 text: "Update Todo",
                 onPressed: editController.saveTodo,
               ),

@@ -7,6 +7,7 @@ import 'package:todolist_application/reusable_component/textfield_widget.dart';
 
 class LoginMobilePage extends StatelessWidget {
   LoginMobilePage({super.key});
+
   final AuthController authController = Get.find<AuthController>();
 
   @override
@@ -15,14 +16,9 @@ class LoginMobilePage extends StatelessWidget {
       backgroundColor: const Color(0xFFF4F9FF),
       body: LayoutBuilder(
         builder: (context, constraints) {
-          bool isWide = constraints.maxWidth > 600; 
-
           return Center(
             child: SingleChildScrollView(
-              padding: EdgeInsets.symmetric(
-                horizontal: isWide ? constraints.maxWidth * 0.25 : 24,
-                vertical: isWide ? 40 : 16,
-              ),
+              padding: EdgeInsets.symmetric(),
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 500),
                 child: CustomCard(
@@ -31,11 +27,7 @@ class LoginMobilePage extends StatelessWidget {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.asset(
-                          "assets/images/kunci.png",
-                          width: isWide ? 180 : 140,
-                          height: isWide ? 180 : 140,
-                        ),
+                        Image.asset("assets/images/kunci.png"),
                         const SizedBox(height: 13),
                         const Text(
                           "Welcome Back!",
@@ -48,10 +40,7 @@ class LoginMobilePage extends StatelessWidget {
                         const SizedBox(height: 8),
                         const Text(
                           "Ready to check off today's tasks? Let's go!",
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.black54,
-                          ),
+                          style: TextStyle(fontSize: 14, color: Colors.black54),
                           textAlign: TextAlign.center,
                         ),
                         const SizedBox(height: 24),
@@ -71,6 +60,10 @@ class LoginMobilePage extends StatelessWidget {
                         ),
                         const SizedBox(height: 24),
                         Frame4Button(
+                          width: 296,
+                          height: 50,
+                          elevation: 4,
+                          color: const Color(0xFF42B6E7),
                           text: "Login",
                           onPressed: () {
                             authController.login();
