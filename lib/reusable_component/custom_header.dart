@@ -25,7 +25,7 @@ class CustomHeader extends StatelessWidget {
                 TextSpan(
                   text: title,
                   style: const TextStyle(
-                    color: Colors.amber,
+                    color: Color(0xFF2563EB),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -35,7 +35,7 @@ class CustomHeader extends StatelessWidget {
           if (onAdd != null)
             ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.redAccent,
+                backgroundColor: Color(0xFF2563EB),
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),

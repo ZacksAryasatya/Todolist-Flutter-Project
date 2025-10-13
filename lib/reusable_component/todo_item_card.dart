@@ -26,7 +26,7 @@ class TodoItemCard extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       elevation: 4,
-      color: Colors.lightBlueAccent,
+      color: Colors.white,
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 16,
@@ -36,7 +36,7 @@ class TodoItemCard extends StatelessWidget {
           title,
           style: const TextStyle(
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
         subtitle: Column(
@@ -44,12 +44,12 @@ class TodoItemCard extends StatelessWidget {
           children: [
             Text(
               description,
-              style: const TextStyle(color: Colors.white, fontSize: 13),
+              style: const TextStyle(color: Colors.black, fontSize: 13),
             ),
             const SizedBox(height: 4),
             Text(
               "Kategori: $category",
-              style: const TextStyle(color: Colors.white70, fontSize: 12),
+              style: const TextStyle(color: Colors.black, fontSize: 12),
             ),
           ],
         ),
@@ -57,14 +57,14 @@ class TodoItemCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
-              icon: const Icon(Icons.edit, color: Colors.white),
+              icon: const Icon(Icons.edit, color: Color(0xFF2563EB)),
               onPressed: onEdit,
               tooltip: "Edit Todo",
             ),
             IconButton(
               icon: Icon(
                 isDone ? Icons.check_circle : Icons.radio_button_unchecked,
-                color: isDone ? Colors.greenAccent : Colors.white,
+                color: isDone ? Colors.greenAccent : Colors.black,
               ),
               onPressed: onToggle,
               tooltip: "Tandai selesai",

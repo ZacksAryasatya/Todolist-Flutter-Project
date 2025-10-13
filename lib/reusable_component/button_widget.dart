@@ -15,7 +15,7 @@ class Frame4Button extends StatelessWidget {
     this.width = 296,
     this.height = 50,
     this.elevation = 4,
-    this.color = const Color(0xFF42B6E7),
+    this.color = const Color(0xFF2563EB),
     required this.onPressed,
     this.textStyle,
   });
