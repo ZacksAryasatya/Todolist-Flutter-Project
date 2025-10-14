@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todolist_application/controllers/auth_controller.dart';
 import 'package:todolist_application/pages/mobile/dashboard_mobile_page.dart';
-import 'package:todolist_application/pages/mobile/home_mobile_page.dart';
 import 'package:todolist_application/pages/widescreen/dashboard_widescreen_page.dart';
-import 'package:todolist_application/pages/widescreen/home_widescreen_page.dart';
 
 
 class DashboardPage extends StatelessWidget {
