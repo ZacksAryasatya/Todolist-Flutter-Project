@@ -1,6 +1,7 @@
 import 'package:todolist_application/binding/auth_binding.dart';
 import 'package:todolist_application/binding/dashboard_binding.dart';
 import 'package:todolist_application/binding/edit_todo_binding.dart';
+import 'package:todolist_application/binding/splash_binding.dart';
 import 'package:todolist_application/binding/todo_binding.dart';
 import 'package:todolist_application/pages/addtodo_page.dart';
 import 'package:todolist_application/pages/dashboard_page.dart';
@@ -15,7 +16,11 @@ import 'package:get/get.dart';
 
 class AppPages {
   static final pages = [
-    GetPage(name: AppRoutes.welcome, page: () => WelcomingPage()),
+    GetPage(
+      name: AppRoutes.welcome,
+      page: () => WelcomingPage()
+      ),
+    GetPage(name: AppRoutes.welcome, page: () => WelcomingPage(), binding: SplashBinding()),
     GetPage(
       name: AppRoutes.login,
       page: () => LoginPage(),
