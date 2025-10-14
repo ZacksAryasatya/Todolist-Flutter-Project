@@ -24,9 +24,9 @@ class DashboardMobilePage extends StatelessWidget {
             child: BottomNavigationBar(
               currentIndex: dashboardController.selectedIndex.value,
               onTap: dashboardController.changetabIndex,
-              backgroundColor: const Color(0xFFE94057),
-              selectedItemColor: Colors.white,
-              unselectedItemColor: Colors.black54,
+              backgroundColor: const Color(0xFFFFFFFF),
+              selectedItemColor: Color(0xFF2569EB),
+              unselectedItemColor: Color(0xFF9CA3AF),
               items: const [
                 BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
                 BottomNavigationBarItem(

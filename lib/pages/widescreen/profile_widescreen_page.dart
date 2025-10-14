@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:todolist_application/controllers/auth_controller.dart';
 
 class ProfileWidescreenPage extends StatelessWidget {
-  const ProfileWidescreenPage({super.key});
+  ProfileWidescreenPage({super.key});
+
+  final authcontroller = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
