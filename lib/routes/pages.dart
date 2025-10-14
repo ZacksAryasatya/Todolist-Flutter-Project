@@ -17,10 +17,9 @@ import 'package:get/get.dart';
 class AppPages {
   static final pages = [
     GetPage(
-      name: AppRoutes.welcome,
-      page: () => WelcomingPage()
-      ),
-    GetPage(name: AppRoutes.welcome, page: () => WelcomingPage(), binding: SplashBinding()),
+      name: AppRoutes.welcome, 
+      page: () => WelcomingPage(), 
+      binding: SplashBinding()),
     GetPage(
       name: AppRoutes.login,
       page: () => LoginPage(),
@@ -29,7 +28,7 @@ class AppPages {
     GetPage(
       name: AppRoutes.dashboard,
       page: () => DashboardPage(),
-      bindings: [DashboardBinding(), TodoBinding()],
+      bindings: [DashboardBinding(), TodoBinding(), AuthBinding()],
     ),
     GetPage(
       name: AppRoutes.home, 

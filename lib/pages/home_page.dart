@@ -7,7 +7,7 @@ import 'package:todolist_application/pages/widescreen/home_widescreen_page.dart'
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
-  final todocontroller = Get.find<TodoController>();
+  final TodoController todocontroller = Get.find<TodoController>();
 
   @override
   Widget build(BuildContext context) {

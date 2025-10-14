@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todolist_application/controllers/auth_controller.dart';
+import 'package:todolist_application/reusable_component/button_widget.dart';
 
 class ProfileWidescreenPage extends StatelessWidget {
   ProfileWidescreenPage({super.key});
 
-  final authcontroller = Get.find<AuthController>();
+  final AuthController authController = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,10 @@ class ProfileWidescreenPage extends StatelessWidget {
                     children: const [
                       Text(
                         "Nama: ",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
                       ),
                       Text("TODO", style: TextStyle(fontSize: 18)),
                     ],
@@ -41,7 +45,10 @@ class ProfileWidescreenPage extends StatelessWidget {
                     children: const [
                       Text(
                         "Asal Sekolah: ",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
                       ),
                       Text("SMK RUS Kudus", style: TextStyle(fontSize: 18)),
                     ],
@@ -51,7 +58,10 @@ class ProfileWidescreenPage extends StatelessWidget {
                     children: const [
                       Text(
                         "Tanggal Lahir: ",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
                       ),
                       Text("01 Januari 2000", style: TextStyle(fontSize: 18)),
                     ],
@@ -61,10 +71,23 @@ class ProfileWidescreenPage extends StatelessWidget {
                     children: const [
                       Text(
                         "Email: ",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
                       ),
                       Text("todo@gmail.com", style: TextStyle(fontSize: 18)),
                     ],
+                  ),
+                  Frame4Button(
+                    onPressed: () {
+                      authController.logout();
+                    },
+                    text: "Logout",
+                    width: 120,
+                    height: 40,
+                    elevation: 4,
+                    color: Color(0xFF42B6E7),
                   ),
                 ],
               ),
