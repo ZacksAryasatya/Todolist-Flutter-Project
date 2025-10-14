@@ -1,24 +1,29 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todolist_application/routes/routes.dart';
 
 class AuthController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  void login() {
-    final email = emailController.text.trim();
-    final password = passwordController.text.trim();
+  login() async {
+     String usernameToString = emailController.text.toString().trim();
+    String passwordToString = passwordController.text.toString().trim();
 
-    if (email == "z" && password == "z") {
-      Get.snackbar("Sukses", "Login berhasil ");
-      Get.offAllNamed(AppRoutes.dashboard);
-    } else {
-      Get.snackbar("Error", "Email atau password salah");
+    if (usernameToString == "z" && passwordToString == "z") {
+      final prefs = await SharedPreferences.getInstance();
+      prefs.setString("username", usernameToString);
+      Get.offNamed(AppRoutes.dashboard);
+    } 
+    else {
+      Get.snackbar("Error", "Invalid username or password");
     }
   }
 
-  void logout() {
+  void logout() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.remove("username");
     Get.offAllNamed(AppRoutes.login);
   }
 
