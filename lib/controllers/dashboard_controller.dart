@@ -12,4 +12,9 @@ class DashboardController extends GetxController {
   void changetabIndex(int index) {
     selectedIndex.value = index;
   }
+
+  var isMobile = true.obs;
+  void updatelayout(BoxConstraints constraints) {
+    isMobile.value = constraints.maxWidth < 600;
+  }
 }
