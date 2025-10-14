@@ -20,7 +20,7 @@ class HistoryItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.green.shade400,
+        color: Color(0xFFECFDF5),
         borderRadius: BorderRadius.circular(12),
       ),
       padding: const EdgeInsets.all(12),
@@ -35,7 +35,7 @@ class HistoryItemCard extends StatelessWidget {
                   title,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: Color(0xFFECFDF5),
                     decoration: TextDecoration.lineThrough,
                     fontSize: 16,
                   ),
@@ -43,20 +43,20 @@ class HistoryItemCard extends StatelessWidget {
                 ),
               ),
               if (showCheckIcon)
-                const Icon(Icons.check_circle, color: Colors.white),
+                const Icon(Icons.check_circle, color: Color(0xFF16A34A)),
             ],
           ),
           const SizedBox(height: 8),
           Text(
             description,
-            style: const TextStyle(color: Colors.white70, fontSize: 14),
+            style: const TextStyle(color: Colors.black, fontSize: 14),
             maxLines: 2,
-            overflow: TextOverflow.ellipsis,
+            overflow: TextOverflow.ellipsis,  
           ),
           const SizedBox(height: 4),
           Text(
             "Kategori: $category",
-            style: const TextStyle(color: Colors.white70, fontSize: 12),
+            style: const TextStyle(color: Colors.black, fontSize: 12),
           ),
         ],
       ),
