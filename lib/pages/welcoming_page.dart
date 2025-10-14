@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:todolist_application/reusable_component/button_widget.dart';
-import 'package:todolist_application/routes/routes.dart';
+import 'package:todolist_application/controllers/splash_controller.dart';
 
 class WelcomingPage extends StatelessWidget {
-  const WelcomingPage({super.key});
+  WelcomingPage({super.key});
+
+  final SplashController splashController = Get.find<SplashController>();
 
   @override
   Widget build(BuildContext context) {
@@ -58,18 +59,7 @@ class WelcomingPage extends StatelessWidget {
                   height: 1.4,
                 ),
               ),
-
               const SizedBox(height: 32),
-              Frame4Button(
-                width: 296,
-                height: 50,
-                elevation: 4,
-                color: const Color(0xFF42B6E7),
-                onPressed: () {
-                  Get.offNamed(AppRoutes.login);
-                },
-                text: "Get Started",
-              ),
             ],
           ),
         ),

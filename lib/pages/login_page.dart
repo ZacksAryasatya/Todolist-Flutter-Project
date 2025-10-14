@@ -8,7 +8,7 @@ import 'package:todolist_application/pages/widescreen/login_widescreen_page.dart
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
-  final controller = Get.find<AuthController>();
+  final AuthController controller = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {

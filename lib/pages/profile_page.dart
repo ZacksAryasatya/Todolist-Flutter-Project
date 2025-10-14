@@ -8,7 +8,7 @@ import 'package:todolist_application/pages/widescreen/profile_widescreen_page.da
 class ProfilePage extends StatelessWidget {
   ProfilePage({super.key});
 
-  final controller = Get.find<AuthController>();
+  final AuthController controller = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
