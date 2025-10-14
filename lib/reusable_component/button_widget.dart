@@ -11,13 +11,13 @@ class Frame4Button extends StatelessWidget {
 
   const Frame4Button({
     super.key,
-    this.text = "",
-    this.width = 296,
-    this.height = 50,
-    this.elevation = 4,
-    this.color = const Color(0xFF2563EB),
     required this.onPressed,
     this.textStyle,
+    required this.text,
+    required this.width,
+    required this.height,
+    required this.elevation,
+    required this.color,
   });
 
   @override
@@ -36,12 +36,11 @@ class Frame4Button extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: 
-              const TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-              ),
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
     );
