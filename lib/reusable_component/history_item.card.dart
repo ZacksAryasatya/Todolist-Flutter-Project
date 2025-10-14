@@ -35,7 +35,7 @@ class HistoryItemCard extends StatelessWidget {
                   title,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFFECFDF5),
+                    color: Colors.black,
                     decoration: TextDecoration.lineThrough,
                     fontSize: 16,
                   ),

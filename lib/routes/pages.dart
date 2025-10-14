@@ -32,36 +32,25 @@ class AppPages {
       page: () => DashboardPage(),
       bindings: [DashboardBinding(), TodoBinding()],
     ),
-    GetPage(name: AppRoutes.home, page: () => HomePage()),
-    GetPage(name: AppRoutes.addtodo, page: () => AddTodoPage()),
+    GetPage(
+      name: AppRoutes.home, 
+      page: () => HomePage()
+      ),
+    GetPage(
+      name: AppRoutes.addtodo, 
+      page: () => AddTodoPage()),
 
     GetPage(
       name: AppRoutes.edittodo,
       page: () => EditTodoPage(),
       binding: EditTodoBinding(),
     ),
-    GetPage(name: AppRoutes.history, page: () => HistoryPage()),
-    GetPage(name: AppRoutes.profile, page: () => ProfilePage()),
-
     GetPage(
-      name: AppRoutes.profilewidescreenpage,
-      page: () => ProfileWidescreenPage(),
-      binding: AuthBinding(),
-    ),
+      name: AppRoutes.history, 
+      page: () => HistoryPage()),
     GetPage(
-      name: AppRoutes.loginwidescreenpage,
-      page: () => LoginWidescreenPage(),
-      binding: TodoBinding(),
-    ),
-    GetPage(
-      name: AppRoutes.homewidescreenpage,
-      page: () => HomeWidescreenPage(),
-      binding: TodoBinding(),
-    ),
-    GetPage(
-      name: AppRoutes.historywidescreenpage,
-      page: () => HistoryWidescreenPage(),
-      binding: TodoBinding(),
-    ),
+      name: AppRoutes.profile, 
+      page: () => ProfilePage(), 
+      binding: AuthBinding()),
   ];
 }
