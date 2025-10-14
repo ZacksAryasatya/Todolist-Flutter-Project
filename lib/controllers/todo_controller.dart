@@ -68,4 +68,10 @@ class TodoController extends GetxController {
   void deleteCompletedTodo(int index) {
     completedTodos.removeAt(index);
   }
+
+  var isMobile = true.obs;
+
+  void updatelayout(BoxConstraints constraints){
+    isMobile.value = constraints.maxWidth < 600;
+  }
 }

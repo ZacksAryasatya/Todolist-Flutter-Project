@@ -11,6 +11,10 @@ class EditTodoController extends GetxController {
   final TextEditingController descController = TextEditingController();
   final RxString selectedCategory = "".obs;
 
+   void setCategory(String value) {
+    selectedCategory.value = value;
+  }
+
   @override
   void onInit() {
     super.onInit();

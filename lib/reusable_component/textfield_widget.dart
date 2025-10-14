@@ -4,6 +4,7 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final IconData? icon;
   final bool isPassword;
+  final String label;
 
   final TextEditingController controller;
 
@@ -12,7 +13,7 @@ class CustomTextField extends StatelessWidget {
     required this.hintText,
     this.icon,
     this.isPassword = false, 
-    required this.controller,
+    required this.controller, required this.label,
   });
 
   @override
